@@ -48,11 +48,6 @@ public class AppConfig {
         hibernateProp.put("hibernate.max_fetch_depth", 3);
         hibernateProp.put("hibernate.jdbc.batch_size", 10);
         hibernateProp.put("hibernate.jdbc.fetch_size", 50);
-        //hibernateProp.put("hibernate.default_schema", "PUBLIC");
-        /*hibernateProp.put("hibernate.connection.driver_class", "org.h2.Driver");
-        hibernateProp.put("hibernate.connection.url", "jdbc:h2:mem:sebbia;DATABASE_TO_UPPER=false");
-        hibernateProp.put("hibernate.connection.username", "sa");
-        hibernateProp.put("hibernate.connection.password", "");*/
 
         return hibernateProp;
     }

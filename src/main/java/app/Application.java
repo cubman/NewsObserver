@@ -21,8 +21,6 @@ import java.util.List;
 @SpringBootApplication
 public class Application  extends SpringBootServletInitializer {
 
-
-    private static Logger logger = LoggerFactory.getLogger(Application.class);
     @Override
     protected SpringApplicationBuilder configure (SpringApplicationBuilder builder) {
         return builder.sources(Application.class);
@@ -50,26 +48,6 @@ public class Application  extends SpringBootServletInitializer {
 
     public static void main(String[] args)
     {
-        //SpringApplication.run(Application.class, args);
-        logger.info("Application started...");
         SpringApplication.run(Application.class, args);
-        //assert (ctx2 != null);
-
-
-        //System.in.read();
-       // ctx.close();
-       // GenericApplicationContext ctx = new AnnotationConfigApplicationContext(app.AppConfig.class);
-      //  CategoryDao singerDao = ctx2.getBean(CategoryDao.class);
-      //  listSingersWithAlbum(singerDao.findAll());
-      //  ctx2.close();
-    }
-
-
-    private static void listSingersWithAlbum(List<Category> singers) {
-        logger.info(" ---- Listing singers with instruments:");
-        singers.forEach(s -> {
-            logger.info(String.valueOf(s.getId()));
-            System.out.println(String.valueOf(s.toString()));
-        });
     }
 }

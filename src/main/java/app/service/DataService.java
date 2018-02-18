@@ -25,9 +25,6 @@ public class DataService implements IService {
     @Autowired
     private AuthorRepository authorRepository;
 
-  //  @Autowired
-  //  private NewsRepository newsRepository;
-
     @Override
     public List<Category> getAllCategories() {
         List<Category> target = new ArrayList();
@@ -51,15 +48,8 @@ public class DataService implements IService {
         return target;
     }
 
-   /* @Override
-    public List<News> getAllNews()
-    {
-        List<News> target = new ArrayList();
-        newsRepository.findAll().forEach(target::add);
-        return target;
-    }*/
-   @Override
-   public News getNews(Long news_id)
+    @Override
+    public News getNews(Long news_id)
    {
        return newsRepository.findOne(news_id);
    }

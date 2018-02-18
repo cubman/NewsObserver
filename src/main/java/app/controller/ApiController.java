@@ -20,30 +20,11 @@ public class ApiController {
     @Autowired
     private DataService dataService;
 
-
     @GetMapping("categories")
-    public List<Category> categoriesList()
-    {
-        return dataService.getAllCategories();
-       /* List userDetails = dataService.getAllCategories();
-        String res = "<h1>Категории</h1><p><p> ";
-        for (int i = 0; i < userDetails.size(); ++i)
-            res += userDetails.get(i).toString() + "<p>";
-
-        return res;*/
-    }
+    public List<Category> categoriesList() { return dataService.getAllCategories(); }
 
     @GetMapping("news")
-    public List<News> newsList()
-    {
-        return dataService.getAllNews();
-      /*  List userDetails = dataService.getAllArticles();
-        String res = "<h1>Статьи</h1><p><p> ";
-        for (int i = 0; i < userDetails.size(); ++i)
-            res += userDetails.get(i).toString() + "<p>";
-
-        return res;*/
-    }
+    public List<News> newsList() { return dataService.getAllNews(); }
 
     @GetMapping("authors")
     public List<Author> authorsList() {
