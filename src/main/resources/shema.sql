@@ -1,0 +1,49 @@
+CREATE TABLE category
+(
+  id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+  title VARCHAR(50) NOT NULL
+);
+CREATE UNIQUE INDEX category_id_uindex ON category (id);
+CREATE UNIQUE INDEX category_category_title_uindex ON category (title);
+
+CREATE TABLE news
+(
+  id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+  title VARCHAR(50) NOT NULL,
+  short_description LONGVARCHAR,
+  full_description LONGVARCHAR,
+  time_public DATETIME DEFAULT CURDATE() NOT NULL,
+);
+CREATE UNIQUE INDEX news_id_uindex ON news (id);
+
+CREATE TABLE author
+(
+  id INT AUTO_INCREMENT NOT NULL,
+  first_name VARCHAR(50) NOT NULL,
+  second_name VARCHAR(50),
+  pseudonym LONGVARCHAR PRIMARY KEY NOT NULL,
+  birthday DATE NOT NULL
+);
+CREATE UNIQUE INDEX author_id_uindex ON author (pseudonym);
+
+CREATE TABLE AUTHOR_NEWS
+(
+  id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+  author_pseudonym LONGVARCHAR NOT NULL,
+  news_id INT NOT NULL,
+  CONSTRAINT news_AUTHOR_ID_fk FOREIGN KEY (author_pseudonym) REFERENCES AUTHOR (PSEUDONYM),
+  CONSTRAINT news_NEWS_ID_fk FOREIGN KEY (news_id) REFERENCES news (ID)
+
+);
+CREATE UNIQUE INDEX author_news_id_uindex ON AUTHOR_NEWS (id);
+
+CREATE TABLE CATEGORY_NEWS
+(
+  id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+  category_id LONGVARCHAR NOT NULL,
+  news_id INT NOT NULL,
+  CONSTRAINT news_CATEGORY_ID_fk FOREIGN KEY (category_id) REFERENCES CATEGORY (id),
+  CONSTRAINT news_CAT_NEWS_ID_fk FOREIGN KEY (news_id) REFERENCES news (ID)
+
+);
+CREATE UNIQUE INDEX category_news_id_uindex ON CATEGORY_NEWS (id);

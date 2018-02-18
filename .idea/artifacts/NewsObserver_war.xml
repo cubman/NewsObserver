@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="NewsObserver:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="sebbia-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="NewsObserver:war exploded" />
+    </root>
+  </artifact>
+</component>
